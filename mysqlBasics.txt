@@ -83,7 +83,7 @@ select city , count(name)
    -- ----------------GENERAL ORDER General Order  SELECT  column(s) ------- FROM table_name------WHERE condition------ GROUP BY column(s)------- HAVING condition -----ORDER BY column(s) ASC-----------------
    
 -- -------Table related queries -----update 
---  -------------updating the city of delhi to japan in college database in student table 
+--  -------------updating the city of delhi to japan in college database in student table --------------
 
 use college;
 update student 
@@ -91,6 +91,53 @@ set city = 'japan' where city = "delhi" ;
 
 select * from student ;
 
+--  -------------UPDATING OR CHANGING GRADE FROM O TO A --------------
+update student 
+set grade = "O" where grade = "A" ;
+
+select * from student ;
+
+
+--  -------------DELETE COMMAND--------------
+
+delete from student 
+where marks > 90 ;
+
+select * from student ;
+
+-- ---------------------------ALTER TABLE COMMAND  --- ADD , DROP AND RENAME --------------------
+alter table student 
+change column city city_name varchar(50) ;
+select * from student ;
+
+
+-- ---------------modify--------------
+alter table student 
+modify marks varchar(2) ;
+select * from student ;
+
+
+-- ---------------Add--------------
+
+alter table student 
+add column stu_age  int not null default 19 ;
+select * from student ;
+
+
+-- ------------DROP----------------
+alter table student
+drop column stu_age ;
+select * from student ;
+
+
+
+-- -----------------rename--------------
+alter table student 
+rename to stu ;
+select * from stu ;
+
+-- -----------------TRUNCATE--------------
+
 
 
 
@@ -100,5 +147,6 @@ select * from student ;
 
    
    
+
 
 
