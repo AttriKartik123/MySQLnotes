@@ -137,6 +137,11 @@ rename to stu ;
 select * from stu ;
 
 -- -----------------TRUNCATE--------------
+--   to delete tables data not full table 
+
+truncate table stu ;
+
+select * from stu ;
 
 
 
