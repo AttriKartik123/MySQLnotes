@@ -1,74 +1,4 @@
------create database college ;
------use college ;
 
----------------------------------create database if not exists college ;
-
-------------------Creating table in MySQL ?
------create table student(  id int primary key , name varchar(50) , age int not null   );
-
------drop database if exists college ;
-
------show databases;
-show tables ; 
-
-------------------CREATING A TABLE IN MYSQL:
-----Ans: 
-create table student (rollno int not null , name varchar(50) );
-show tables ;
-
-
-insert into student (rollno , name) 
-values (1,"Karan") ,
-(2, "Harleen"),
-(3, "Iman"),
-(4, "Jatin"),
-(5, "Akash") ;
-
-select * from student ;
-
-
-
-----------------PRIMARY  AND FOREIGN KEY CONCEPT :
-ANs:    
-use college;
-
--- Create city table first
-create table city (
-    id int primary key,
-    city_name varchar(50)
-);
-
-insert into city (id, city_name) values
-(101, "Jalandhar"),
-(103, "Ludhiana"),
-(105, "Sydney"),
-(107, "Pathankot"),
-(108, "Faridkot");
-
-select * from city;
-
--- Create student table referencing city.id
-create table student (
-    id int primary key,
-    name varchar(35),
-    city_id int,
-    foreign key (city_id) references city(id)
-);
-
-insert into student (id, name, city_id) values
-(1, "Karan", 101),
-(2, "AAdhy", 103),
-(3, "Chahat", 105),
-(4, "Des raj", 107),
-(5, "Asha", 108);
-
-select * from student;
-
-
-
-
-
------------------------------ 
  -- ---------------------SELECT IN DETAIL -----------------------------
 create database if not exists college ;
 use college ;
@@ -152,8 +82,16 @@ select city , count(name)
    
    -- ----------------GENERAL ORDER General Order  SELECT  column(s) ------- FROM table_name------WHERE condition------ GROUP BY column(s)------- HAVING condition -----ORDER BY column(s) ASC-----------------
    
+-- -------Table related queries -----update 
+--  -------------updating the city of delhi to japan in college database in student table 
 
- 
+use college;
+update student 
+set city = 'japan' where city = "delhi" ;
+
+select * from student ;
+
+
 
 
 
@@ -162,3 +100,5 @@ select city , count(name)
 
    
    
+
+
