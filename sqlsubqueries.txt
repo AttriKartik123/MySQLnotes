@@ -1,0 +1,65 @@
+create database if not exists college ;
+use college ;
+
+create table student (rollno int primary key , name varchar(50) , marks int not null ) ;
+
+insert into student (rollno , name , marks )
+values (1 , "anil" , 98),
+(2 , "Kaniesha" , 68),
+(3 , "Harleen" , 87),
+(4 , "Daman" , 55),
+(5 , "Evleen" , 88);
+
+select * from student ;
+
+ -- ---- Find average of the class----------------
+ 
+ select avg(marks) as average_marks from student ;
+ 
+ -- --------FIND THE NAMES OF THE STUDENTS WHOSE MARKS> AVG MARKS----------
+ 
+ select name, marks  from student where marks > 80 ;
+ 
+ 
+ -- NOW BY USING SUB QUERIES WE'LL SOLVE IT--------------
+select name,marks from student where marks > (select avg(marks) as average_marks from student ) ;
+
+
+
+
+-- ------------------FIND THE NAMES OF THE STUDENTS WITH EVEN ROLL NUMBERS -------------------USING SQL QUERIES ------
+-- WE'LL SOLVE IT IN 3 STEPS 
+select rollno from student where rollno%2  = 0 ;
+
+-- select names of that students --
+select name from student where rollno in (2,4,6,8,10) ;
+
+-- solution --
+select name , rollno from student 
+where rollno in (select rollno from student where rollno%2  = 0 ) ;
+
+select * from student ;
+
+-- adding columns in the table --------
+
+alter table student add column city varchar(50) ;
+ 
+update student set city = "jalandhar" where rollno = 1 ;
+update student set city = "hoshiarpur" where rollno = 2 ;
+update student set city = "adampur" where rollno = 3 ;
+update student set city = "jalandhar" where rollno = 4 ;
+update student set city = "chandigarh" where rollno = 5 ;
+
+
+-- FIND THE MAXIMUM MARKS OF STUDENT FROM JALANDHAR----------------
+
+-- find the students of jalandhar 
+select name from student where city = "jalandhar" ;
+
+-- find the max marks of the students 
+select max(marks) from student ;
+
+
+-- combined sql subquery -------
+select  max(marks) from student
+ where rollno in (select rollno from student where city = "jalandhar" )  ;
