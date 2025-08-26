@@ -27,3 +27,12 @@ select * from course ;
 select * from student 
 inner join course 
 on student.student_id = course.student_id ;
+
+
+-- ------------LEFT JOIN-----------------
+
+select * from student as s  
+left join course as c 
+on s.student_id = c.student_id ;
+
+
