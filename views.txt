@@ -1,0 +1,23 @@
+create database if not exists college ;
+use college ;
+
+create view view1 as 
+select rollno , marks , name  from student ;
+
+select * from view1 ;
+
+
+-- UPDATE DATA IN VIEWS RATHER THAN CHNGING IN REAL TABLE
+update view1 set name= "admin" where rollno = 5 ;
+update view1 set city = "japan" where rollno = 5 ;
+
+select * from view1 ;
+
+select * from student ;
+
+
+
+-- deleteing the views  
+DROP VIEW IF EXISTS VIEW1 ;
+
+SELECT * from VIEW1;
