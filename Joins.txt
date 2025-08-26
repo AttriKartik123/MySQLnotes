@@ -49,3 +49,24 @@ union
 select * from student as s 
 right join course as c 
 on s.student_id = c.student_id ;
+
+
+-- ------------LEFT EXCLUSIVE AND RIGHT EXCLUSIVE JOIN-----------------
+
+
+-- LEFT EXCLUSIVE JOINS ----------------------------------
+select * from student as s 
+left join course as c 
+on s.student_id = c.student_id 
+
+where c.student_id is null ;
+
+-- RIGHT EXCLUSIVE JOINS ----------------------------------
+
+select * from student as s
+right join course as c 
+on s.student_id = c.student_id 
+
+where s.student_id is null ;
+
+
